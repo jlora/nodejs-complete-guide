@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "start-server": "node app.js"
   },
   "repository": {
@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/jlora/nodejs-complete-guide/issues"
   },
-  "homepage": "https://github.com/jlora/nodejs-complete-guide#readme"
+  "homepage": "https://github.com/jlora/nodejs-complete-guide#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
