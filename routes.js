@@ -5,14 +5,14 @@ const requestHandler = (req, res) => {
   //console.log('METHOD: ', method);
   //console.log('HEADERS: ', headers);
   //process.exit(); // this exits the event loop 
-  if (url === '/'){
+  if (url === '/') {
     res.write('<html>');
     res.write('<head><title>Enter Message</title></head>');
     res.write('<body><form action="/message" method="POST"><input type="text" name="message" /><button type="submit">Send</button></form></body>');
     res.write('</html>');
     return res.end();
   }
-  if (url === '/message' && method === 'POST'){
+  if (url === '/message' && method === 'POST') {
     const body = []
     req.on('data', chunk => {
       console.log(chunk);
