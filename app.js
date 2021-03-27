@@ -8,7 +8,6 @@ const shopRoutes = require('./routes/shop');
 //const routes = require('./routes');
 //console.log(routes.someText);
 //const server = http.createServer(routes);
-
 const app = express();
 
 app.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'}));
