@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
 //const expressHbs = require('express-handlebars');
-const adminData = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const errorController = require('./controllers/error');
 //const bodyParser = require('body-parser');
 //const http = require('http');
 //const routes = require('./routes');
@@ -26,12 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // next(); // Allows the request to continue to the next middleware in line
 //});
 
-app.use('/admin', adminData.routes);
+app.use('/admin', adminRoutes);
 app.use(shopRoutes);
-app.use((req, res, next) => {
-  //res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
-  res.status(404).render('404', { pageTitle: 'Page Not Found' });
-});
+app.use(errorController.get404);
 
 //const server = http.createServer(app);
 //const server = http.createServer(routes.handler);
