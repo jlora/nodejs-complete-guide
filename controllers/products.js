@@ -4,8 +4,7 @@ const Product = require('../models/product');
 exports.getAddProduct = (req, res, next) => {
     //res.sendFile(path.join(__dirname, '../', 'views', 'add-product.html'));
     //res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
-    res.render('add-product', 
-    { 
+    res.render('add-product', { 
         pageTitle: 'Add Product', 
         path: '/admin/add-product', 
         formsCSS: true, 
@@ -30,7 +29,14 @@ exports.getProducts = (req, res, next) => {
 
     // whit pug
     //res.render('shop', { prods: products, pageTitle: 'Shop', path: '/' });
-    const products = Product.fetchAll();
-    res.render('shop', { prods: products, pageTitle: 'Shop', path: '/', hasProducts: products.length > 0, activeShop: true, productCSS: true });
-
+    Product.fetchAll(products => {
+        res.render('shop', { 
+            prods: products, 
+            pageTitle: 'Shop', 
+            path: '/', 
+            hasProducts: products.length > 0, 
+            activeShop: true, 
+            productCSS: true 
+        });
+    });
 }
