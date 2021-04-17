@@ -8,26 +8,24 @@ const product = path.join(
 );
 const getProductsFromFile = cb => {
     fs.readFile(product, (err, fileContent) => {
-        //console.log('getProductsFromFile err :', err);
-        //console.log('getProductsFromFile fileContent :', fileContent);
         err ? cb([]) : cb(JSON.parse(fileContent));
     });
 };
 module.exports = class Product {
-    constructor(title){
+    constructor(title, imageUrl, description, price){
         this.title = title;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.price = price;
     }
 
     save(){
         getProductsFromFile(products => {
             products.push(this);
-            //console.log('getProductsFromFile product: ', product);
-            //console.log('getProductsFromFile JSON.stringify(products) :', JSON.stringify(products));
             fs.writeFile(product, JSON.stringify(products), err => {
                 console.log(err);
             });
         });
-        //fs.readFile(product, (err, fileContent) => {});
     }
 
     static fetchAll(cb){
