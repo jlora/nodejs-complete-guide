@@ -39,8 +39,7 @@ exports.getEditProduct = (req, res, next) => {
             editing: editMode,
             product: product
         });
-    })
-    
+    });
 };
 
 exports.postEditProduct = (req, res, next) => {

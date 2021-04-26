@@ -35,4 +35,6 @@ app.use(errorController.get404);
 //const server = http.createServer(routes.handler);
 //server.listen(3000);
 
-app.listen(3000);
+app.listen(3000, () => {
+    console.log('Server Running & Ready !!!');
+});
