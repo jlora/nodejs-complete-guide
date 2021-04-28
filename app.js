@@ -4,6 +4,7 @@ const path = require('path');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const errorController = require('./controllers/error');
+//const db = require('./util/database');
 //const bodyParser = require('body-parser');
 //const http = require('http');
 //const routes = require('./routes');
@@ -17,6 +18,15 @@ const app = express();
 //app.set('view engine', 'pug');
 app.set('view engine', 'ejs');
 app.set('views', 'views');
+
+/*db.execute('SELECT * FROM products')
+    .then(result => {
+        console.log(result[0]);
+        console.log(result[1]);
+    })
+    .catch(err => {
+        console.log(err);
+    });*/
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
